@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学课前三分钟抽取</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>数学课前三分钟抽取</h1>
+    </header>
+
+    <section class="toolbar toolbar-main" aria-label="主要操作">
+        <button id="draw-button" type="button">一键抽取</button>
+        <button id="clear-assignments" type="button">清除分配</button>
+    </section>
+
+    <main class="app-shell">
+        <section id="calendar" class="calendar-panel" role="region" aria-label="日历视图"></section>
+
+        <aside class="side-panel" role="complementary" aria-label="人员与统计">
+            <div id="stats" class="stats-panel" aria-live="polite"></div>
+
+            <div class="people-section">
+                <div class="list-card">
+                    <h2>未抽取人员</h2>
+                    <ul id="available-ul" role="listbox" aria-label="未抽取人员列表"></ul>
+                </div>
+                <div class="list-card">
+                    <h2>已抽取人员</h2>
+                    <ul id="selected-ul" role="listbox" aria-label="已抽取人员列表"></ul>
+                </div>
+            </div>
+
+            <div class="toolbar toolbar-secondary" role="navigation" aria-label="数据管理">
+                <button id="export-data" type="button">导出数据</button>
+                <label for="import-data" id="import-label" tabindex="0" role="button">导入数据</label>
+                <input type="file" id="import-data" accept=".json" hidden>
+                <button id="add-person" type="button">添加人员</button>
+                <button id="remove-person" type="button">删除人员</button>
+                <button id="reset-data" type="button">重置数据</button>
+            </div>
+
+            <div class="list-card settings-card">
+                <h2>界面设置</h2>
+                <div class="setting-field">
+                    <label for="theme-select">配色主题</label>
+                    <select id="theme-select">
+                        <option value="blue">经典蓝</option>
+                        <option value="dark">暗黑</option>
+                        <option value="green">清新绿</option>
+                        <option value="soft">柔和粉</option>
+                        <option value="custom">自定义</option>
+                    </select>
+                </div>
+                <div id="custom-colors" class="custom-colors" style="display: none;">
+                    <div class="setting-field">
+                        <label for="primary-color">主色调</label>
+                        <input type="color" id="primary-color" value="#007acc">
+                    </div>
+                    <div class="setting-field">
+                        <label for="secondary-color">辅色调</label>
+                        <input type="color" id="secondary-color" value="#f0f0f0">
+                    </div>
+                    <div class="setting-field">
+                        <label for="accent-color">强调色</label>
+                        <input type="color" id="accent-color" value="#ff6b6b">
+                    </div>
+                </div>
+                <div class="setting-field">
+                    <label for="layout-select">布局方案</label>
+                    <select id="layout-select">
+                        <option value="standard">标准</option>
+                        <option value="compact">紧凑</option>
+                        <option value="spacious">宽松</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <div id="toast" class="toast" aria-live="assertive" aria-atomic="true"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
